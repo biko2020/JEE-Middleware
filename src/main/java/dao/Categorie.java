@@ -6,12 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor @ToString
-public class Categorie {
+public class Categorie implements Serializable {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id_categorie;

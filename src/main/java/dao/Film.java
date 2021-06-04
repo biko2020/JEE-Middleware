@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
 @Entity @AllArgsConstructor @NoArgsConstructor @ToString
 @Data
 
-public class Film {
+public class Film implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id_film;
     private String nom_film;

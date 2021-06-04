@@ -6,12 +6,13 @@ import lombok.NoArgsConstructor;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Data
 @NoArgsConstructor @AllArgsConstructor
-public class Salle {
+public class Salle implements Serializable {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_salle;
     private String name_salle;

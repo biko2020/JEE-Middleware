@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -18,4 +19,6 @@ public class Place {
     private double longitude_plce,latitide_plce, altitude_plce;
     @ManyToOne
     private  Salle salle;
+    @OneToMany(mappedBy = "place")
+    private Collection<Ticket>tickets;
 }

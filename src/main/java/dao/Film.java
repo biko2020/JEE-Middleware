@@ -22,7 +22,7 @@ public class Film {
     private String photo_film;
     @OneToMany(mappedBy = "film")
     private Collection<Projection> projections;
-    @ManyToOne
+    @OneToMany(mappedBy = "film")
     private  Categorie categorie;
 
 }

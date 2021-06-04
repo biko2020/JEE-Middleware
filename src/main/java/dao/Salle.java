@@ -9,7 +9,8 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor @AllArgsConstructor
 public class Salle {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_salle;

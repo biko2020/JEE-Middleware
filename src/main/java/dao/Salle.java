@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -17,4 +18,6 @@ public class Salle {
 
     @ManyToOne()
     private Cinema cinema;
+    @OneToMany(mappedBy = "salle")
+    private Collection<Place> places;
 }

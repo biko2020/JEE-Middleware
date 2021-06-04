@@ -10,9 +10,9 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-@Entity @AllArgsConstructor @NoArgsConstructor @ToString
+@Entity
 @Data
-
+@AllArgsConstructor @NoArgsConstructor @ToString
 public class Film implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id_film;

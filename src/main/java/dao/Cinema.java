@@ -14,7 +14,7 @@ import java.util.Collection;
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Cinema implements Serializable {
-@Id @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
+@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cinema;
     private String name_cinema;
     private double longitude_cin,latitide_cin, altitude_cin;

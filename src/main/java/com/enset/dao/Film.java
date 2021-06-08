@@ -1,4 +1,4 @@
-package dao;
+package com.enset.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +23,7 @@ public class Film implements Serializable {
     private String photo_film;
     @OneToMany(mappedBy = "film")
     private Collection<Projection> projections;
-    @OneToMany(mappedBy = "film")
+    @ManyToOne()
     private  Categorie categorie;
 
 }

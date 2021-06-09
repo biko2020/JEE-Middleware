@@ -15,7 +15,7 @@ public class Seance implements Serializable {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id_seance;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIME)
     private Date heureDebut;
 
 

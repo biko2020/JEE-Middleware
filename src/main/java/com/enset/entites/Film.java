@@ -1,5 +1,6 @@
 package com.enset.entites;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class Film implements Serializable {
     private double durre_film;
     private String photo_film;
     @OneToMany(mappedBy = "film")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//spécifier la recherche pour spring data REST
     private Collection<Projection> projections;
     @ManyToOne()
     private  Categorie categorie;

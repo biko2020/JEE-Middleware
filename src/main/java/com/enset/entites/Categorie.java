@@ -1,6 +1,7 @@
 package com.enset.entites;
 
 import com.enset.dao.CategorieRepo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class Categorie implements Serializable {
     private Long id_categorie;
     @Column(length=85)
     private String name_categorie;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)//spécifier la recherche pour spring data REST
     @OneToMany(mappedBy = "categorie")
     private Collection<Film> films;
 

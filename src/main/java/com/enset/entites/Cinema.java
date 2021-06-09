@@ -20,7 +20,8 @@ public class Cinema implements Serializable {
     private String name_cinema;
     private double longitude_cin,latitide_cin, altitude_cin;
     private int nbr_salle;
-    private  int code_Ville;
+    @ManyToOne
+    private  Ville ville;
 
 @OneToMany(mappedBy = "cinema")
     private Collection<Salle> salles;

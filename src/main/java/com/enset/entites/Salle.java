@@ -1,4 +1,4 @@
-package com.enset.dao;
+package com.enset.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +14,7 @@ import java.util.Collection;
 public class Salle implements Serializable {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_salle;
+    @Column(length=30)
     private String name_salle;
     private int nbr_place;
 

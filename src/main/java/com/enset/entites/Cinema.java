@@ -1,4 +1,4 @@
-package com.enset.dao;
+package com.enset.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +16,7 @@ import java.util.Collection;
 public class Cinema implements Serializable {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cinema;
+    @Column(length=45)
     private String name_cinema;
     private double longitude_cin,latitide_cin, altitude_cin;
     private int nbr_salle;

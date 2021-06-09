@@ -1,4 +1,4 @@
-package com.enset.dao;
+package com.enset.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

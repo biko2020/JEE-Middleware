@@ -1,4 +1,4 @@
-package com.enset.dao;
+package com.enset.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,17 +7,16 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
-
+import java.util.Date;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor @ToString
-public class Categorie implements Serializable {
+public class Seance implements Serializable {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long id_categorie;
-    private String name_categorie;
-    @OneToMany(mappedBy = "categorie")
-    private Collection<Film> films;
+    private Long id_seance;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date heureDebut;
+
 
 }

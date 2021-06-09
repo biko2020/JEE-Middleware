@@ -1,4 +1,4 @@
-package com.enset.dao;
+package com.enset.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +14,7 @@ public class Ticket implements Serializable {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id_ticket;
+    @Column(length=45)
     private String nom_client;
     private double prix_ticket;
     private int codepayment_ticket;

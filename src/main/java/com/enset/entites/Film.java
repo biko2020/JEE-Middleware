@@ -1,4 +1,4 @@
-package com.enset.dao;
+package com.enset.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,9 @@ import java.util.Date;
 public class Film implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id_film;
+    @Column(length=50)
     private String nom_film;
+    @Column(length=45)
     private String realisateur;
     private Date dateSortie_film;
     private double durre_film;

@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 @EnableConfigurationProperties
-@EntityScan(basePackages = {"com.enset.dao"})
+@EntityScan(basePackages = {"com.enset.entites"})
 
 public class CinemaApplication {
 

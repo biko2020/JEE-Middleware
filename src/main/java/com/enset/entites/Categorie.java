@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor @ToString
+
 public class Categorie implements Serializable {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 

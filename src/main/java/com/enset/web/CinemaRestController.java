@@ -48,8 +48,11 @@ public class CinemaRestController {
         List<Ticket> listTickets= new ArrayList<>();
         ticketForm.getTickets().forEach(id_ticket->
                 {
+                    // *** add information about tickets ***
+                    
                     Ticket ticket=ticketRepo.getById(id_ticket);
                     ticket.setNom_client(ticketForm.getNomClient());
+                    ticket.setCodepayment_ticket(ticketForm.getCdPayement());
                     ticket.setReserve(1);
                     ticketRepo.save(ticket);
                     listTickets.add(ticket);
@@ -62,6 +65,6 @@ public class CinemaRestController {
     class TicketForm
     {
         private String nomClient;
-        private int codePayement;
+        private int cdPayement;
         private List<Long> tickets = new ArrayList<>();
     }

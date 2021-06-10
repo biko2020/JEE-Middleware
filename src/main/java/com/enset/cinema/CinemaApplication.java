@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 
 
 @SpringBootApplication
@@ -17,8 +17,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = {"com.enset.entites"})
 @EnableJpaRepositories(basePackages = {"com.enset.dao"})
 @ComponentScan(basePackages = {"com.enset.service","com.enset.web"})
-
-
 
 public class CinemaApplication implements CommandLineRunner {
     @Autowired

@@ -19,6 +19,7 @@ import java.util.List;
 
 
 @RestController
+
 public class CinemaRestController {
     @Autowired
     private FilmRepo filmRepo;
@@ -33,16 +34,22 @@ public class CinemaRestController {
         Path path = Paths.get(file.toURI());
         return Files.readAllBytes(path);
     }
+    final String url="/mytickt";
+    final String typeOfFile="application/json";
 
-    @PostMapping("/payerTickts")
-    @Transactional
-    public List<Ticket> payerTickts(@RequestBody TicketForm ticketForm)
+     //@PostMapping(url)
+     @RequestMapping(value=url, produces = typeOfFile, method={RequestMethod.POST} )
+
+     /*@RequestMapping(
+             value = url, produces = typeOfFile, method = { RequestMethod.POST})*/
+     @Transactional
+    public List<Ticket> payerTickts(@RequestBody  TicketForm ticketForm)
     {
         List<Ticket> listTickets= new ArrayList<>();
         ticketForm.getTickets().forEach(id_ticket->
                 {
                     Ticket ticket=ticketRepo.getById(id_ticket);
-                    ticket.setNom_client(ticketForm.getNom_Client());
+                    ticket.setNom_client(ticketForm.getNomClient());
                     ticket.setReserve(1);
                     ticketRepo.save(ticket);
                     listTickets.add(ticket);
@@ -54,7 +61,7 @@ public class CinemaRestController {
 @Data
     class TicketForm
     {
-        private String nom_Client;
+        private String nomClient;
         private int codePayement;
         private List<Long> tickets = new ArrayList<>();
     }

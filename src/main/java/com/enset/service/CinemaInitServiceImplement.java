@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 @Service // en utilise la notation service pour la couche metier
 @Transactional
 
+
 public class CinemaInitServiceImplement implements IcinemaInitService {
 
     @Autowired // cette notation pour l injection des dependances

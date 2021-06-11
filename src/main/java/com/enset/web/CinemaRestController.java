@@ -20,8 +20,8 @@ import java.util.List;
 
 
 @RestController()
-
-public class CinemaRestController {
+@CrossOrigin("*") // autoriser au application des autres domaines de communiquer avec cette application
+public class CinemaRestController implements  Serializable {
     @Autowired
     private FilmRepo filmRepo;
     @Autowired

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.io.File;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@RestController
+@RestController()
 
 public class CinemaRestController {
     @Autowired
@@ -34,37 +35,35 @@ public class CinemaRestController {
         Path path = Paths.get(file.toURI());
         return Files.readAllBytes(path);
     }
-    final String url="/mytickt";
-    final String typeOfFile="application/json";
 
-     //@PostMapping(url)
-     @RequestMapping(value=url, produces = typeOfFile, method={RequestMethod.POST} )
+    final String url ="myTicket";
 
-     /*@RequestMapping(
-             value = url, produces = typeOfFile, method = { RequestMethod.POST})*/
-     @Transactional
-    public List<Ticket> payerTickts(@RequestBody  TicketForm ticketForm)
+    @PostMapping(value=url)
+    @Transactional
+
+    /**--- info about ticket ---***/
+    public List<Ticket> payerTickets(@RequestBody TicketForm ticketForm)
     {
-        List<Ticket> listTickets= new ArrayList<>();
-        ticketForm.getTickets().forEach(id_ticket->
-                {
-                    // *** add information about tickets ***
-                    
-                    Ticket ticket=ticketRepo.getById(id_ticket);
-                    ticket.setNom_client(ticketForm.getNomClient());
-                    ticket.setCodepayment_ticket(ticketForm.getCdPayement());
-                    ticket.setReserve(1);
-                    ticketRepo.save(ticket);
-                    listTickets.add(ticket);
-                }
-        );
-        return  listTickets;
+        List<Ticket> listTickets = new ArrayList<>();
+        ticketForm.getTickets().forEach(id_ticket->{
+            Ticket ticket = ticketRepo.findById(id_ticket).get();
+            ticket.setNom_client(ticketForm.getNomClient());
+            ticket.setCodepayment_ticket(ticketForm.getCodePayement());
+            ticket.setReserve(1);
+            ticketRepo.save(ticket);
+            listTickets.add(ticket);
+        });
+
+        return listTickets;
     }
+
 }
+
 @Data
     class TicketForm
     {
         private String nomClient;
-        private int cdPayement;
+        private int codePayement;
         private List<Long> tickets = new ArrayList<>();
     }
+

@@ -37,9 +37,11 @@ public class CinemaRestController {
     }
 
     final String url ="myTicket";
+    // final String typeOfFile="application/json";
 
     @PostMapping(value=url)
     @Transactional
+    //@RequestMapping(value=url, produces = typeOfFile, method={RequestMethod.POST} )
 
     /**--- info about ticket ---***/
     public List<Ticket> payerTickets(@RequestBody TicketForm ticketForm)

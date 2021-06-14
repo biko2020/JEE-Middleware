@@ -135,7 +135,7 @@ public class CinemaInitServiceImplement implements IcinemaInitService {
     public void initProjections() {
   double[] price= new double[]{30,50,60,70,90,100};
         villeRepo.findAll().forEach(ville->{
-            ville.getCimemas().forEach(cinema -> {
+            ville.getCinemas().forEach(cinema -> {
                 cinema.getSalles().forEach(salle -> {
                     filmRepo.findAll().forEach(film->{
                         seanceRepo.findAll().forEach(seance->{

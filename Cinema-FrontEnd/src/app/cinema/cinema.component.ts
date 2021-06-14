@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {CinemaService} from "../services/cinema.service";
 
 @Component({
   selector: 'app-cinema',
@@ -8,18 +9,30 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 })
 export class CinemaComponent implements OnInit {
 
-public villes ;
+public villes :any;
+public cinemas : any;
 
-  constructor(private http:HttpClient) { }
 
-  ngOnInit(){
 
-    this.http.get("http://localhost:8090/villes")
-      .subscribe(data=>{
-        this.villes=data;
-      },err=>{
+  constructor(private cinemaservice:CinemaService) { }
+
+  ngOnInit() {
+
+    this.cinemaservice.getVilles()
+      .subscribe(data => {
+        this.villes = data;
+      }, err => {
+        console.log(err);
+      })
+
+  }
+
+  onGetCinemas(ville: any) {
+    this.cinemaservice.getCinemas(ville)
+      .subscribe(data=> {
+        this.cinemas = data;
+      }, err=> {
         console.log(err);
       })
   }
-
 }

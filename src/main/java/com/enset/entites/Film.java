@@ -25,7 +25,7 @@ public class Film implements Serializable {
     private double durre_film;
     private String photo_film;
     @OneToMany(mappedBy = "film")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//spécifier la recherche pour spring data REST
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//spécifier la recherche pour spring data REST
     private Collection<Projection> projections;
     @ManyToOne()
     private  Categorie categorie;

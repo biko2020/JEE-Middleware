@@ -19,12 +19,12 @@ public class Projection implements Serializable {
     private Date dat_projection;
     private  double prix_projection;
     @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY )
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY )
     private Salle salle;
     @ManyToOne
     private  Film film;
     @OneToMany(mappedBy="projection")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY )
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY )
     private Collection<Ticket> tickets;
     @ManyToOne
     private Seance seance;

@@ -19,7 +19,7 @@ public curentCinema:any;
 
 
 
-  constructor(private cinemaservice:CinemaService) { }
+  constructor(public cinemaservice:CinemaService) { }
 
   ngOnInit() {
 
@@ -44,10 +44,17 @@ public curentCinema:any;
 
   onGetSalles(cinema:any){
       this.curentCinema=cinema;
-      this.cinemaservice.getSalles(cinema)
+        this.cinemaservice.getSalles(cinema)
         .subscribe(data => {
           this.salles = data;
-          this.salles._embedded.salles.forEach()
+           this.salles._embedded.salles.forEach((salle:any)=>{
+            this.cinemaservice.getProjections(salle)
+             .subscribe(data=> {
+               salle.projection = data;
+             },err=>{
+               console.log(err);
+             })
+          })
         },err=>{
           console.log(err);
         })

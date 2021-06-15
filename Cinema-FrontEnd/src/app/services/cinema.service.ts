@@ -15,11 +15,17 @@ export class CinemaService {
  return this.http.get(this.host+"/villes");
   }
 
-   getCinemas(ville:any){
+  getCinemas(ville:any){
    return this.http.get(ville._links.cinemas.href);
   }
 
   getSalles(cinema:any){
     return this.http.get(cinema._links.salles.href);
   }
+
+  getProjections(salle:any){
+    let url = salle._links.projections.href.replace("{?projection}","");
+    return this.http.get(url+"?projection=p1");
+  }
+
 }

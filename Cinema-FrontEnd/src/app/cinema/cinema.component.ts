@@ -47,6 +47,7 @@ public curentCinema:any;
       this.cinemaservice.getSalles(cinema)
         .subscribe(data => {
           this.salles = data;
+          this.salles._embedded.salles.forEach()
         },err=>{
           console.log(err);
         })

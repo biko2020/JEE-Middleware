@@ -11,6 +11,11 @@ export class CinemaComponent implements OnInit {
 
 public villes :any;
 public cinemas : any;
+public salles: any;
+
+public curentVille:any;
+public curentCinema:any;
+
 
 
 
@@ -27,12 +32,23 @@ public cinemas : any;
 
   }
 
-  onGetCinemas(ville: any) {
+  onGetCinemas(ville:any) {
+    this.curentVille=ville;
     this.cinemaservice.getCinemas(ville)
       .subscribe(data=> {
         this.cinemas = data;
       }, err=> {
         console.log(err);
       })
+  }
+
+  onGetSalles(cinema:any){
+      this.curentCinema=cinema;
+      this.cinemaservice.getSalles(cinema)
+        .subscribe(data => {
+          this.salles = data;
+        },err=>{
+          console.log(err);
+        })
   }
 }

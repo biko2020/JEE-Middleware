@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RepositoryRestResource
-@CrossOrigin("*")// autoriser a d autres domaines de communiquer avec cette application
+@CrossOrigin("*")
 public interface VilleRepo extends JpaRepository<Ville, Long> {
 
 }

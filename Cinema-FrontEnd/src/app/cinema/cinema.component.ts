@@ -16,8 +16,7 @@ public salles: any;
 public curentVille:any;
 public curentCinema:any;
 
-
-
+  //imgFilm: any="http://localhost:8090/imageFilm/1"
 
   constructor(public cinemaservice:CinemaService) { }
 
@@ -58,5 +57,14 @@ public curentCinema:any;
         },err=>{
           console.log(err);
         })
+  }
+
+  getImagesFilm(imgFilm:any){
+    this.cinemaservice.getNameOfFilm(imgFilm)
+      .subscribe(data=> {
+        this.cinemas = data;
+      }, err=> {
+        console.log(err);
+      })
   }
 }

@@ -20,13 +20,13 @@ public class Salle implements Serializable {
     private int nbr_place;
 
     @ManyToOne()
-    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Cinema cinema;
     @OneToMany(mappedBy = "salle")
-    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Place> places;
     @OneToMany
-    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Projection> projections;
 
 }

@@ -1,10 +1,11 @@
 package com.enset.entites;
 
 import org.springframework.data.rest.core.config.Projection;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Collection;
 import java.util.Date;
-
+@CrossOrigin("*")
 @Projection(name="p1",types={com.enset.entites.Projection.class})
 public interface Projectionproj {
 

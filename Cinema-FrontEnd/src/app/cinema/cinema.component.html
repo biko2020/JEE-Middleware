@@ -1,56 +1,36 @@
 <div class="container" >
-
-  <!-- ******   list villes ******-->
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <ul *ngIf="villes" class="list-group">
         <li [ngClass]="ville==curentVille?'active':''" *ngFor="let ville of villes._embedded.villes" class="list-group-item clickable"
-            (click)="onGetCinemas(ville)">
-          {{ville.name}}
+        (click)="onGetCinemas(ville)">
+         {{ville.name}}
         </li>
       </ul>
     </div>
-  </div>
-
-  <!-- ******   list cinema ****** -->
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">Liste des Cinémas</div>
-      <div class="panel-body" >
-        <ul *ngIf="cinemas" class="nav nav-pills">
-          <li *ngFor="let cinema of cinemas._embedded.cinemas" class="clickable">
-            <a (click)="onGetSalles(cinema)">{{cinema.name_cinema}} </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- ******   list séances ****** -->
-  <div class="row" *ngIf="salles">
-    <div *ngFor="let salle of salles._embedded.salles">
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">{{salle.name_salle}}</div>
-          <div class="panel-body" *ngIf="salle.projections">
-            <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">Liste des Cinémas</div>
+        <div class="panel-body" >
+          <ul *ngIf="cinemas" class="nav nav-pills">
+            <li *ngFor="let cinema of cinemas._embedded.cinemas" class="clickable">
+              <a (click)="onGetSalles(cinema)">{{cinema.name_cinema}} </a>
+            </li>
+          </ul>
+          <div class="row" *ngIf="salles" >
+            <div *ngFor="let salle of salles._embedded.salles">
               <div class="col-md-6">
-                <img width="130" src="{{cinemaservice.host+'/imageFilm/'+salle.projections._embedded.projections[0].film.id_film}}"/>
+                  <div class="panel panel-default ">
+                    <div class="panel-heading">{{salle.name_salle}}</div>
+                       <div class="panel-body" *ngIf="salle.projections">
+                          <img src="{{cinemaservice.host+'/photo_film/'+salle.projections._embedded.projections[0].film.id}}"/>
+                       </div>
+                    </div>
+                  </div>
               </div>
-              <div class="col-md-6">
-                <ul class="list-group">
-                  <li class="list-group-item">Séances:</li>
-                  <li *ngFor="let projection of salle._embedded.projections" class="list-group-item">
-                    {{projection.seance.heureDebut}}
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-</div> <!-- fin container-->
+</div>

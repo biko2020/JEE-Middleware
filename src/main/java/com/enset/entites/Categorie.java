@@ -23,7 +23,7 @@ public class Categorie implements Serializable {
     private Long id_categorie;
     @Column(length=85)
     private String name_categorie;
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)//spécifier la recherche pour spring data REST
+   // @JsonProperty(access = JsonProperty.Access.READ_ONLY)//spécifier la recherche pour spring data REST
     @OneToMany(mappedBy = "categorie")
     private Collection<Film> films;
 

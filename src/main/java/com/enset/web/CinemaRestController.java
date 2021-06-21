@@ -20,7 +20,7 @@ import java.util.List;
 
 
 @RestController()
-@CrossOrigin("*") // autoriser au application des autres domaines de communiquer avec cette application
+@CrossOrigin("*") // autoriser la communiquer avec cette application
 public class CinemaRestController implements  Serializable {
     @Autowired
     private FilmRepo filmRepo;
@@ -37,11 +37,12 @@ public class CinemaRestController implements  Serializable {
     }
 
     final String url ="myTicket";
-    // final String typeOfFile="application/json";
+    final String typeOfFile="application/json";
 
-    @PostMapping(value=url)
+    //@PostMapping(value=url)
+    @RequestMapping(value=url, produces = typeOfFile, method={RequestMethod.POST} )
     @Transactional
-    //@RequestMapping(value=url, produces = typeOfFile, method={RequestMethod.POST} )
+
 
     /**--- info about ticket ---***/
     public List<Ticket> payerTickets(@RequestBody TicketForm ticketForm)

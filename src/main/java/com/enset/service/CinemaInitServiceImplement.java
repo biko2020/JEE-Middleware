@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 public class CinemaInitServiceImplement implements IcinemaInitService {
 
-    @Autowired // cette notation pour l injection des dependances
+    @Autowired // pour l injection des dependances
     private VilleRepo villeRepo; // en fait appel a l interface  villerepo
     @Autowired
     private CinemaRepo cinemaRepo;
@@ -46,8 +46,11 @@ public class CinemaInitServiceImplement implements IcinemaInitService {
             Ville ville = new Ville();
             ville.setName(name_ville);
             villeRepo.save(ville);
+
         });
     }
+
+
 
     @Override
     public void initCinemas() {
@@ -139,16 +142,15 @@ public class CinemaInitServiceImplement implements IcinemaInitService {
         villeRepo.findAll().forEach(ville->{
             ville.getCinemas().forEach(cinema -> {
                 cinema.getSalles().forEach(salle -> {
-
                     int index=new Random().nextInt(films.size());
                     Film film=films.get(index);
-                        seanceRepo.findAll().forEach(seance->{
-                            Projection projection = new Projection();
-                            projection.setDat_projection(new Date());
-                            projection.setFilm(film);
+                            seanceRepo.findAll().forEach(seance -> {
+                            ProjectionCin projection = new ProjectionCin();
                             projection.setPrix_projection(price[new Random().nextInt(price.length)]);
+                            projection.setDat_projection(new Date());
                             projection.setSalle(salle);
                             projection.setSeance(seance);
+                            projection.setFilm(film);
                             projectionRepo.save(projection);
 
                         });
@@ -172,4 +174,5 @@ public class CinemaInitServiceImplement implements IcinemaInitService {
             });
         });
     }
+
 }

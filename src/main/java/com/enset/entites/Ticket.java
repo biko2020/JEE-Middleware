@@ -1,6 +1,5 @@
 package com.enset.entites;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +22,6 @@ public class Ticket implements Serializable {
     @ManyToOne
     private Place place;
     @ManyToOne
-    private Projection projection;
+    private ProjectionCin projection;
 
 }

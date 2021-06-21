@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor @AllArgsConstructor @ToString
-public class Projection implements Serializable {
+public class ProjectionCin implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_projection;
     private Date dat_projection;
@@ -24,7 +24,7 @@ public class Projection implements Serializable {
     @ManyToOne
     private  Film film;
     @OneToMany(mappedBy="projection")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY )
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY )
     private Collection<Ticket> tickets;
     @ManyToOne
     private Seance seance;

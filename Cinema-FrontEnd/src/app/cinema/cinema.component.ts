@@ -16,7 +16,8 @@ public salles: any;
 public curentVille:any;
 public curentCinema:any;
 
-  //imgFilm: any="http://localhost:8090/imageFilm/1"
+
+//imgFilm: any="http://localhost:8090/imageFilm/1"
 
   constructor(public cinemaservice:CinemaService) { }
 
@@ -49,7 +50,7 @@ public curentCinema:any;
            this.salles._embedded.salles.forEach((salle:any)=>{
             this.cinemaservice.getProjections(salle)
              .subscribe(data=> {
-               salle.projection = data;
+               salle.projections = data;
              },err=>{
                console.log(err);
              })
@@ -59,12 +60,22 @@ public curentCinema:any;
         })
   }
 
-  getImagesFilm(imgFilm:any){
-    this.cinemaservice.getNameOfFilm(imgFilm)
-      .subscribe(data=> {
-        this.cinemas = data;
-      }, err=> {
-        console.log(err);
-      })
-  }
+  /*getImagesFilm(imgFilm:any){
+        this.curentCinema=imgFilm;
+        this.cinemaservice.getSalles(imgFilm)
+        .subscribe(data => {
+          this.salles = data;
+           this.salles._embedded.projections.forEach((NumProject:any)=>{
+           this.cinemaservice.getNameOfFilm(NumProject)
+       .subscribe(data=> {
+             NumProject.projections = data;
+             },err=>{
+               console.log(err);
+             })
+          })
+        },err=>{
+          console.log(err);
+        })
+  }*/
+
 }

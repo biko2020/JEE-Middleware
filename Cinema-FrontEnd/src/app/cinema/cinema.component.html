@@ -20,11 +20,27 @@
           <div class="row" *ngIf="salles" >
             <div *ngFor="let salle of salles._embedded.salles">
               <div class="col-md-6">
-                  <div class="panel panel-default ">
-                    <div class="panel-heading">{{salle.name_salle}}</div>
-                       <div class="panel-body" *ngIf="salle.projections">
-                          <img src="{{cinemaservice.host+'/photo_film/'+salle.projections._embedded.projections[0].film.id}}"/>
-                       </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" >{{salle.name_salle}}</div>
+                        <div class="panel-body" *ngIf="salle.projections">
+                          <div class="row">
+                            <div class="col-md-6">
+
+                              <!-- <img width="130" src="{{cinemaservice.host+'/imageFilm/'+getImagesFilm(salle.projections._embedded.projections[0].film.id_film)}}"/>-->
+                              <!-- <img width="130" src="{{cinemaservice.host+'/imageFilm/'+getImagesFilm(NumProject)}}"/> -->
+                              <img width="130" src="{{cinemaservice.host+'/imageFilm/'+6}}"/>
+                            </div>
+                            <div class="col-md-6">
+                              <ul class="list-group">
+                                <li class="list-group-item">Séances :</li>
+                                <li *ngFor="let project of salle.projections._embedded.projections[1]" class="list-group-item">
+                                  {{project.seance.heureDebut}} => Prix : {{project.prix_projection}}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
                     </div>
                   </div>
               </div>

@@ -10,3 +10,4 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public interface VilleRepo extends JpaRepository<Ville, Long> {
 
 }
+

@@ -28,9 +28,11 @@ export class CinemaService {
     let url = salle._links.projections.href.replace("{?projection}","");
     return this.http.get(url+"?projection=p1");
   }
+/*
+  getNameOfFilm(NumProject:any){
+    let NumP = NumProject.projections[0].film.id_film;
+     return this.http.get("http://localhost:8090/imageFilm/'"+NumP);
 
-  getNameOfFilm(imgFilm:any){
-     return this.http.get("http://localhost:8090/imageFilm/+'imgFilm'+");
   }
-
+*/
 }
